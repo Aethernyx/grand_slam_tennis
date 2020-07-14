@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Match Winner</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="p1_ace_total" placeholder="p1 Total Aces" required="required" />
+        <input type="text" name="p2_ace_total" placeholder="p2 Total Aces" required="required" />
+        <input type="text" name="p1_df_total" placeholder="p1 Total Double Faults" required="required" />
+        <input type="text" name="p2_df_total" placeholder="p2 Total Double Faults" required="required" />
+        <input type="text" name="p1_winners" placeholder="p1 Total Winners" required="required" />
+        <input type="text" name="p2_winners" placeholder="p2 Total Winners" required="required" />
+        <input type="text" name="p1_unforced_errors" placeholder="p1 Total Unforced Errors" required="required" />
+        <input type="text" name="p2_unforced_errors" placeholder="p2 Total Unforced Errors" required="required" />
+        <input type="text" name="p1_net_p_won" placeholder="p1 % Net Points Won" required="required" />
+        <input type="text" name="p2_net_p_won" placeholder="p2 % Net Points Won" required="required" />
+        <input type="text" name="p1_bp_won" placeholder="p1 % Break Points Won" required="required" />
+        <input type="text" name="p2_bp_won" placeholder="p2 % Break Points Won" required="required" />
+        <input type="text" name="p1_fsp" placeholder="p1 1st Serve %" required="required" />
+        <input type="text" name="p2_fsp" placeholder="p2 1st Serve %" required="required" />
+        <input type="text" name="p1_fswp" placeholder="p1 1st Serve Winning %" required="required" />
+        <input type="text" name="p2_fswp" placeholder="p2 1st Serve Winning %" required="required" />
+        <input type="text" name="p1_ssp" placeholder="p1 2nd Serve %" required="required" />
+        <input type="text" name="p2_ssp" placeholder="p2 2nd Serve %" required="required" />
+        <input type="text" name="p1_sswp" placeholder="p1 2nd Serve Winning %" required="required" />
+        <input type="text" name="p2_sswp" placeholder="p2 2nd Serve Winning %" required="required" />
+        <input type="text" name="p1_forced_error" placeholder="p1 Total Forced Error" required="required" />
+		<input type="text" name="p2_forced_error" placeholder="p2 Total Forced Error" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
